@@ -118,6 +118,24 @@ To run tests:
 npm test
 ```
 
+## API Testing
+
+The APIs can also be tested using Postman after starting the server.
+
+Base URL:
+
+```text
+http://localhost:3000
+```
+
+First call the login API:
+
+```text
+POST /api/auth/login
+```
+
+Then use the returned token as a Bearer Token for protected routes.
+
 ## Note
 
 This is not a production-ready project. It is made for an assignment to show backend structure, role based access, validation and basic finance dashboard APIs.
