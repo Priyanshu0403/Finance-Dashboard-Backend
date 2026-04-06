@@ -1,7 +1,7 @@
-const db = require("../config/database");
-const { AppError } = require("../middleware/errorHandler");
+import db from "../config/database.js";
+import { AppError } from "../middleware/errorHandler.js";
 
-class TransactionService {
+export class TransactionService {
   create(data, createdBy) {
     const result = db
       .prepare(
@@ -135,7 +135,4 @@ class TransactionService {
   }
 }
 
-module.exports = {
-  TransactionService,
-  transactionService: new TransactionService(),
-};
+export const transactionService = new TransactionService();

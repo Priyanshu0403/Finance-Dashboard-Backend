@@ -1,13 +1,13 @@
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
+import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
 
-const db = require("../config/database");
-const { JWT_SECRET } = require("../middleware/auth");
-const { AppError } = require("../middleware/errorHandler");
+import db from "../config/database.js";
+import { JWT_SECRET } from "../middleware/auth.js";
+import { AppError } from "../middleware/errorHandler.js";
 
 const TOKEN_TTL = "8h";
 
-class AuthService {
+export class AuthService {
   login(email, password) {
     const user = db.prepare("SELECT * FROM users WHERE email = ?").get(email);
 
@@ -30,7 +30,4 @@ class AuthService {
   }
 }
 
-module.exports = {
-  AuthService,
-  authService: new AuthService(),
-};
+export const authService = new AuthService();

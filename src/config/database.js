@@ -1,7 +1,10 @@
-const Database = require("better-sqlite3");
-const path = require("path");
-const fs = require("fs");
+import Database from "better-sqlite3";
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const DB_DIR = path.join(__dirname, "../../data");
 const DB_PATH = path.join(DB_DIR, "finance.db");
 
@@ -49,4 +52,4 @@ db.exec(`
   CREATE INDEX IF NOT EXISTS idx_transactions_deleted  ON transactions(is_deleted);
 `);
 
-module.exports = db;
+export default db;

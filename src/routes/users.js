@@ -1,10 +1,10 @@
-const { Router } = require("express");
+import { Router } from "express";
 
-const { authenticate } = require("../middleware/auth");
-const { adminOnly, viewerOrAbove } = require("../middleware/rbac");
-const { createUserSchema, updateUserSchema, userFilterSchema } = require("../validators/schemas");
-const { userService } = require("../services/userService");
-const { Role } = require("../types");
+import { authenticate } from "../middleware/auth.js";
+import { adminOnly, viewerOrAbove } from "../middleware/rbac.js";
+import { createUserSchema, updateUserSchema, userFilterSchema } from "../validators/schemas.js";
+import { userService } from "../services/userService.js";
+import { Role } from "../types.js";
 
 const router = Router();
 
@@ -65,4 +65,4 @@ router.patch("/:id", adminOnly, (req, res, next) => {
   }
 });
 
-module.exports = router;
+export default router;

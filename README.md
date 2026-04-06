@@ -30,9 +30,6 @@ A role-based REST API backend for a multi-user finance dashboard. Built with **N
 # 1. Install dependencies
 npm install
 
-# 2. Copy env values
-copy .env.example .env
-
 # 3. Seed the database with sample users and transactions
 npm run seed
 
@@ -370,7 +367,6 @@ All errors follow a consistent shape:
 | `403`  | Authenticated but insufficient permissions       |
 | `404`  | Resource not found                               |
 | `409`  | Conflict (e.g. duplicate email)                  |
-| `429`  | Rate limit exceeded                              |
 | `500`  | Unexpected server error (details hidden)         |
 
 ---

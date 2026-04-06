@@ -1,6 +1,6 @@
-const db = require("../config/database");
+import db from "../config/database.js";
 
-class DashboardService {
+export class DashboardService {
   getSummary(opts = {}) {
     const dateConditions = ["is_deleted = 0"];
     const dateParams = [];
@@ -86,7 +86,4 @@ class DashboardService {
   }
 }
 
-module.exports = {
-  DashboardService,
-  dashboardService: new DashboardService(),
-};
+export const dashboardService = new DashboardService();

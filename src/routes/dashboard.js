@@ -1,9 +1,9 @@
-const { Router } = require("express");
-const { z } = require("zod");
+import { Router } from "express";
+import { z } from "zod";
 
-const { authenticate } = require("../middleware/auth");
-const { analystOrAbove } = require("../middleware/rbac");
-const { dashboardService } = require("../services/dashboardService");
+import { authenticate } from "../middleware/auth.js";
+import { analystOrAbove } from "../middleware/rbac.js";
+import { dashboardService } from "../services/dashboardService.js";
 
 const router = Router();
 router.use(authenticate, analystOrAbove);
@@ -42,4 +42,4 @@ router.get("/weekly", (req, res, next) => {
   }
 });
 
-module.exports = router;
+export default router;

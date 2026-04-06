@@ -1,7 +1,7 @@
-const bcrypt = require("bcryptjs");
+import bcrypt from "bcryptjs";
 
-const db = require("../config/database");
-const { AppError } = require("../middleware/errorHandler");
+import db from "../config/database.js";
+import { AppError } from "../middleware/errorHandler.js";
 
 const SALT_ROUNDS = 10;
 
@@ -10,7 +10,7 @@ function toSafeUser(user) {
   return safe;
 }
 
-class UserService {
+export class UserService {
   create(data) {
     const existing = db.prepare("SELECT id FROM users WHERE email = ?").get(data.email);
 
@@ -118,7 +118,4 @@ class UserService {
   }
 }
 
-module.exports = {
-  UserService,
-  userService: new UserService(),
-};
+export const userService = new UserService();

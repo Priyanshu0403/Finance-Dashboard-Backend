@@ -1,4 +1,4 @@
-const { Role } = require("../types");
+import { Role } from "../types.js";
 
 const ROLE_RANK = {
   [Role.VIEWER]: 1,
@@ -6,7 +6,7 @@ const ROLE_RANK = {
   [Role.ADMIN]: 3,
 };
 
-function requireRole(...roles) {
+export function requireRole(...roles) {
   return (req, res, next) => {
     const user = req.user;
 
@@ -29,13 +29,6 @@ function requireRole(...roles) {
   };
 }
 
-const viewerOrAbove = requireRole(Role.VIEWER);
-const analystOrAbove = requireRole(Role.ANALYST);
-const adminOnly = requireRole(Role.ADMIN);
-
-module.exports = {
-  requireRole,
-  viewerOrAbove,
-  analystOrAbove,
-  adminOnly,
-};
+export const viewerOrAbove = requireRole(Role.VIEWER);
+export const analystOrAbove = requireRole(Role.ANALYST);
+export const adminOnly = requireRole(Role.ADMIN);

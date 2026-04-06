@@ -1,13 +1,13 @@
-const { Router } = require("express");
+import { Router } from "express";
 
-const { authenticate } = require("../middleware/auth");
-const { adminOnly, viewerOrAbove } = require("../middleware/rbac");
-const {
+import { authenticate } from "../middleware/auth.js";
+import { adminOnly, viewerOrAbove } from "../middleware/rbac.js";
+import {
   createTransactionSchema,
   updateTransactionSchema,
   transactionFilterSchema,
-} = require("../validators/schemas");
-const { transactionService } = require("../services/transactionService");
+} from "../validators/schemas.js";
+import { transactionService } from "../services/transactionService.js";
 
 const router = Router();
 router.use(authenticate);
@@ -74,4 +74,4 @@ router.delete("/:id", adminOnly, (req, res, next) => {
   }
 });
 
-module.exports = router;
+export default router;

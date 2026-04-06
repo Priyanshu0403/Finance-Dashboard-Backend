@@ -1,9 +1,9 @@
-const { Router } = require("express");
+import { Router } from "express";
 
-const { loginSchema } = require("../validators/schemas");
-const { authService } = require("../services/authService");
-const { authenticate } = require("../middleware/auth");
-const { userService } = require("../services/userService");
+import { loginSchema } from "../validators/schemas.js";
+import { authService } from "../services/authService.js";
+import { authenticate } from "../middleware/auth.js";
+import { userService } from "../services/userService.js";
 
 const router = Router();
 
@@ -26,4 +26,4 @@ router.get("/me", authenticate, (req, res, next) => {
   }
 });
 
-module.exports = router;
+export default router;

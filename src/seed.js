@@ -1,6 +1,6 @@
-const bcrypt = require("bcryptjs");
+import bcrypt from "bcryptjs";
 
-const db = require("./config/database");
+import db from "./config/database.js";
 
 const SALT_ROUNDS = 10;
 

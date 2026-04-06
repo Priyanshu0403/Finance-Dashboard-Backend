@@ -1,6 +1,6 @@
-const { ZodError } = require("zod");
+import { ZodError } from "zod";
 
-class AppError extends Error {
+export class AppError extends Error {
   constructor(statusCode, message) {
     super(message);
     this.name = "AppError";
@@ -8,7 +8,7 @@ class AppError extends Error {
   }
 }
 
-function errorHandler(err, _req, res, _next) {
+export function errorHandler(err, _req, res, _next) {
   if (err instanceof ZodError) {
     const messages = err.errors.map((entry) => `${entry.path.join(".")}: ${entry.message}`);
     res.status(400).json({ error: "Validation failed.", details: messages });
@@ -23,8 +23,3 @@ function errorHandler(err, _req, res, _next) {
   console.error("[Unhandled Error]", err);
   res.status(500).json({ error: "An internal server error occurred." });
 }
-
-module.exports = {
-  AppError,
-  errorHandler,
-};

@@ -1,8 +1,8 @@
-const request = require("supertest");
-const bcrypt = require("bcryptjs");
+import request from "supertest";
+import bcrypt from "bcryptjs";
 
-const app = require("../src/app");
-const db = require("../src/config/database");
+import app from "../src/app.js";
+import db from "../src/config/database.js";
 
 function createUser(name, email, password, role) {
   const hash = bcrypt.hashSync(password, 10);
