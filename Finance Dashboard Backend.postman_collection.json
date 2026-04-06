@@ -1,0 +1,143 @@
+{
+  "info": {
+    "_postman_id": "d7a41584-ca4c-4124-b3a3-6c71dabdd179",
+    "name": "Finance Dashboard Backend",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "45713043",
+    "_collection_link": "https://go.postman.co/collection/45713043-d7a41584-ca4c-4124-b3a3-6c71dabdd179?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Login as admin",
+      "protocolProfileBehavior": {
+        "disabledSystemHeaders": {}
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"admin@example.com\",\r\n  \"password\": \"Admin1234!\"\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}/api/auth/login",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "List users",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc3NTM5MjM0MCwiZXhwIjoxNzc1NDIxMTQwfQ.DVlSkZ0KkZVyxvOGDgv8Yv_niJ8Sn8Kc6q5_vyDzdvU",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}/api/users",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "api",
+            "users"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create a transaction",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc3NTM5MjM0MCwiZXhwIjoxNzc1NDIxMTQwfQ.DVlSkZ0KkZVyxvOGDgv8Yv_niJ8Sn8Kc6q5_vyDzdvU",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"amount\": 1200.5,\r\n  \"type\": \"expense\",\r\n  \"category\": \"Rent\",\r\n  \"date\": \"2026-04-05\",\r\n  \"notes\": \"Manual test transaction\"\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}/api/transactions",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "api",
+            "transactions"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "View dashboard summary",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc3NTM5MjM0MCwiZXhwIjoxNzc1NDIxMTQwfQ.DVlSkZ0KkZVyxvOGDgv8Yv_niJ8Sn8Kc6q5_vyDzdvU",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}/api/dashboard/summary",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "api",
+            "dashboard",
+            "summary"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseURL",
+      "value": "",
+      "type": "default"
+    }
+  ]
+}
